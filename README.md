@@ -67,9 +67,9 @@ The database was created using [the Django admin site](https://docs.djangoprojec
 The project was built with:
 
 * [Django](https://www.djangoproject.com/)
-* [Bootstrap4](https://reactjs.org/)
+* [Bootstrap4](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
 * [ChartJS](https://www.chartjs.org/)
-* [PostgreSQL](https://vuejs.org/)
+* [PostgreSQL](https://www.postgresql.org/)
 * [Heroku](https://www.heroku.com/about)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
