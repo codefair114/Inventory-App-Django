@@ -1,0 +1,69 @@
+{% extends 'partials/base.html' %}
+{% block title %}{{ title_page }}{% endblock %}
+{% load crispy_forms_tags %}
+{% load getattribute %}
+
+{% block content %}
+<div class="container-fluid">
+    {% if add_form %}
+
+    <div class="row my-4">
+        <div class="col-md-4">
+
+            <div class="border bg-white p-3">
+                <h3>{{ button_text }}</h3>
+                <hr>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <input class="btn btn-dark" type="submit" value="{{button_text}}" />
+                </form>
+            </div>
+
+        </div>
+    <div class="col-md-8">
+    {% else %}
+    <div>
+    <div>
+    <div class="mt-4">
+    {% endif %}
+            <table class="table bg-dark">
+                <thead class="bg-dark">
+                    <tr class="text-white">
+                        {% for column in column_list %}
+                        {% if column.name != 'password' %}
+                        <th scope="col">{{ column.name }}</th>
+                        {% endif %}
+                        {% endfor %}
+                        {% if add_form %}
+                        <th scope="col">Actions</th>
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for et in entity %}
+                    <tr class="text-white">
+                        {% for column in column_list %}
+                        {% if column.name != 'password' %}
+                        <td>{{ et|getattribute:column.name }}</td>
+                        {% endif %}
+                        {% endfor %}
+                        {% if add_form %}
+                        <td>
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <a class="btn btn-light btn-sm m-1" href="{% url redirect_url|addstr:'-edit' et.id %}">Edit</a>
+                                <a class="btn btn-danger btn-sm m-1" href="{% url redirect_url|addstr:'-delete' et.id %}">Delete</a>
+                            </div>
+                        </td>
+                        {% endif %}
+                        
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
