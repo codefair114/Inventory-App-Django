@@ -2,7 +2,7 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/AlexandraChiritaACS">
+  <a href="https://github.com/codefair114">
     <img src="https://i.ibb.co/P9zzfNC/220-2205436-free-inventory-management-system-logo-clipart-for-warehouse.jpg" alt="Logo" width="80" height="80">
   </a>
 
